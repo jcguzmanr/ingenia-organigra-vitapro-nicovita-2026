@@ -1,0 +1,24 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:16px}
+  .field{display:flex;flex-direction:column;gap:6px}
+  label{font-family:var(--font-sans);font-size:11px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--ink)}
+  input,textarea,select{font-family:var(--font-sans);font-size:15px;padding:12px 14px;border:1px solid var(--hairline);border-radius:4px;background:#fff;color:var(--ink);outline:none;transition:border-color .12s}
+  input:focus,textarea:focus,select:focus{border-color:var(--ingenia-red)}
+  input::placeholder{color:var(--muted)}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .help{font-size:12px;color:var(--muted)}
+  .error{color:var(--ingenia-red);font-size:12px}
+  .check{display:flex;align-items:center;gap:10px;font-size:14px}
+  .box{width:18px;height:18px;border:1.5px solid var(--ink);border-radius:2px;display:inline-flex;align-items:center;justify-content:center;background:#fff}
+  .box.on{background:var(--ingenia-red);border-color:var(--ingenia-red);color:#fff}
+</style></head><body>
+  <div class="row">
+    <div class="field"><label>Nombre</label><input placeholder="María Fernanda"></div>
+    <div class="field"><label>Email *</label><input value="maria@ingenia.la" style="border-color:var(--ingenia-red)"></div>
+  </div>
+  <div class="field"><label>Mensaje</label><textarea rows="2" placeholder="Contanos sobre tu marca…"></textarea><div class="help">Responder en 24h hábiles.</div></div>
+  <div style="display:flex;gap:20px;align-items:center">
+    <div class="check"><span class="box on">✓</span> Acepto política</div>
+    <div class="check"><span class="box"></span> Suscribirme</div>
+  </div>
+</body></html>

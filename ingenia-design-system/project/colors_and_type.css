@@ -1,0 +1,252 @@
+/* =============================================================
+   Ingenia Latam — Colors & Type Foundations
+   Version: 1.0 · 2026
+   ---------------------------------------------------------------
+   Paired with /fonts (self-hosted) and /assets (logos, backgrounds).
+   Import this file before any page styles:
+     <link rel="stylesheet" href="colors_and_type.css">
+   ============================================================= */
+
+/* ---------- Fonts (self-hosted TTF) ---------------------------- */
+
+@font-face {
+  font-family: "DM Serif Display";
+  src: url("fonts/DMSerifDisplay-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-Variable.ttf") format("truetype-variations"),
+       url("fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 300 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-SemiBold.ttf") format("truetype");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Space Grotesk";
+  src: url("fonts/SpaceGrotesk-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ---------- Tokens ------------------------------------------- */
+
+:root {
+  /* — BRAND COLORS — */
+  /* Primary: deep, saturated red-orange. Never pastel. */
+  --ingenia-red:        #ff110a;   /* Rojo Ingenia   — headers, CTAs, one dominant use per view */
+  --ingenia-orange:     #ff5800;   /* Naranja        — secondary accents, icons, active borders  */
+  --ingenia-orange-lt:  #ff9400;   /* Naranja claro  — highlights, badges, gradient end          */
+
+  /* Neutrals: warm paper, near-black ink, no true-gray shadows. */
+  --ink:                #1a1a1a;   /* Body text, isotipo black, chrome                         */
+  --ink-soft:           #3a3a3a;   /* Secondary text                                          */
+  --muted:              #666666;   /* Labels, metadata, captions                              */
+  --hairline:           #d9d9d9;   /* Divider rules, 1px borders                              */
+  --paper:              #f4f2ee;   /* Warm off-white — preferred page background              */
+  --paper-alt:          #eeeeee;   /* Cool off-white — alternating rows, secondary cards      */
+  --white:              #ffffff;
+
+  /* Semantic (derived) */
+  --fg-1: var(--ink);
+  --fg-2: var(--ink-soft);
+  --fg-3: var(--muted);
+  --fg-on-red: var(--white);
+  --bg-page:   var(--paper);
+  --bg-surface: var(--white);
+  --bg-alt:    var(--paper-alt);
+  --border:    var(--hairline);
+  --accent:    var(--ingenia-red);
+
+  /* Brand gradients (from the isotipo + backgrounds) */
+  --grad-primary:  linear-gradient(135deg, #ff110a 0%, #ff5800 55%, #ff9400 100%);
+  --grad-warm:     linear-gradient(135deg, #ff5800, #ff9400);
+  --grad-isotipo:  radial-gradient(circle at 30% 30%, #ff3a00 0%, #ff110a 40%, #ff5800 75%, #ff9400 100%);
+
+  /* — TYPE FAMILIES — */
+  --font-display: "DM Serif Display", "Playfair Display", "Times New Roman", Georgia, serif;
+  --font-sans:    "Space Grotesk", "Trebuchet MS", "Arial Narrow", system-ui, sans-serif;
+  --font-mono:    ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  /* Canonical role aliases */
+  --font-heading:  var(--font-sans);       /* Functional headings, kickers, eyebrows            */
+  --font-editorial: var(--font-display);   /* Editorial hero words, quotes, statements in UPPER */
+  --font-body:     var(--font-sans);
+
+  /* — TYPE SCALE (fluid, tuned to Space Grotesk + DM Serif) — */
+  --fs-eyebrow: 0.75rem;    /* 12px — kickers, metadata, country lockups (UPPERCASE, tracked) */
+  --fs-caption: 0.813rem;   /* 13px — footnotes, asides                                      */
+  --fs-small:   0.875rem;   /* 14px — labels, secondary UI                                   */
+  --fs-body:    1rem;       /* 16px — baseline body                                          */
+  --fs-lede:    1.125rem;   /* 18px — leading paragraph                                      */
+  --fs-h4:      1.25rem;    /* 20px                                                          */
+  --fs-h3:      1.5rem;     /* 24px                                                          */
+  --fs-h2:      2rem;       /* 32px                                                          */
+  --fs-h1:      2.75rem;    /* 44px                                                          */
+  --fs-display: 4rem;       /* 64px — hero editorial                                         */
+  --fs-mega:    6rem;       /* 96px — section posters                                        */
+
+  /* Letter-spacing */
+  --tracking-tight:  -0.02em;  /* DM Serif displays                                           */
+  --tracking-body:    0em;
+  --tracking-eyebrow: 0.14em;  /* UPPERCASE kickers: PERÚ / ECUADOR / CHILE                   */
+  --tracking-label:   0.06em;
+
+  /* Line-heights */
+  --lh-tight:   1.02;    /* display */
+  --lh-heading: 1.1;
+  --lh-body:    1.55;
+  --lh-label:   1.2;
+
+  /* — SPACING (8px base) — */
+  --sp-0: 0;
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+  --sp-9: 96px;
+  --sp-10: 128px;
+
+  /* — RADII — Ingenia is low-radius. Rectangles dominate. — */
+  --r-0: 0px;
+  --r-1: 2px;
+  --r-2: 4px;
+  --r-3: 8px;
+  --r-pill: 999px;
+
+  /* — SHADOWS — used sparingly. — */
+  --shadow-0: none;
+  --shadow-1: 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-2: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-3: 0 12px 40px rgba(26,26,26,0.12);
+
+  /* — MOTION — */
+  --ease-standard: cubic-bezier(0.2, 0.7, 0.2, 1);
+  --ease-exit:     cubic-bezier(0.4, 0, 1, 1);
+  --dur-xs: 120ms;
+  --dur-sm: 200ms;
+  --dur-md: 320ms;
+  --dur-lg: 520ms;
+}
+
+/* ---------- Base / element defaults --------------------------- */
+
+html, body {
+  background: var(--bg-page);
+  color: var(--fg-1);
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Functional headings — Space Grotesk, tight tracking. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--fg-1);
+  line-height: var(--lh-heading);
+  letter-spacing: var(--tracking-tight);
+  margin: 0 0 var(--sp-4);
+  font-weight: 600;
+}
+h1 { font-size: var(--fs-h1); font-weight: 700; }
+h2 { font-size: var(--fs-h2); }
+h3 { font-size: var(--fs-h3); }
+h4 { font-size: var(--fs-h4); }
+
+/* Editorial hero text — DM Serif Display, UPPERCASE only (no italic).
+   Use .editorial for brand statements ("CONSTRUCCIÓN.", "18 AÑOS"). */
+.editorial,
+.display-serif {
+  font-family: var(--font-editorial);
+  font-weight: 400;
+  font-style: normal;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-tight);
+  text-transform: uppercase;
+}
+
+/* Eyebrows / kickers — used everywhere */
+.eyebrow,
+.kicker {
+  font-family: var(--font-sans);
+  font-size: var(--fs-eyebrow);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-eyebrow);
+  color: var(--fg-1);
+  line-height: var(--lh-label);
+}
+
+/* Paragraphs */
+p { margin: 0 0 var(--sp-4); max-width: 62ch; }
+p.lede { font-size: var(--fs-lede); color: var(--fg-2); max-width: 56ch; }
+
+/* Small UI text */
+small, .small { font-size: var(--fs-small); color: var(--fg-3); }
+
+/* Links — brand red underline, no default link blue. */
+a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: var(--ingenia-red);
+  transition: color var(--dur-xs) var(--ease-standard);
+}
+a:hover { color: var(--ingenia-red); }
+
+/* Code / mono */
+code, pre, kbd {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+/* Selection */
+::selection { background: var(--ingenia-red); color: var(--white); }
+
+/* ---------- Utility classes ---------------------------------- */
+.text-display { font-size: var(--fs-display); }
+.text-mega    { font-size: var(--fs-mega); }
+.text-red     { color: var(--ingenia-red); }
+.text-muted   { color: var(--fg-3); }
+.bg-paper     { background: var(--bg-page); }
+.bg-red       { background: var(--ingenia-red); color: var(--white); }
+.grad-primary { background: var(--grad-primary); }
+.hairline     { border-top: 1px solid var(--border); }

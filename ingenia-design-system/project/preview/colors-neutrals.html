@@ -1,0 +1,19 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:18px}
+  .swatches{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .s{aspect-ratio:1/1.2;border-radius:4px;display:flex;flex-direction:column;justify-content:flex-end;padding:8px;border:1px solid rgba(0,0,0,.06)}
+  .s .n{font-size:11px;font-weight:600}
+  .s .h{font-family:ui-monospace,Menlo,monospace;font-size:9px;color:var(--muted)}
+  .s.dark .n, .s.dark .h{color:#fff}
+  .s.dark .h{opacity:.75}
+</style></head><body>
+  <div class="swatches">
+    <div class="s dark" style="background:#1a1a1a"><div class="n">Ink</div><div class="h">#1a1a1a</div></div>
+    <div class="s dark" style="background:#3a3a3a"><div class="n">Ink soft</div><div class="h">#3a3a3a</div></div>
+    <div class="s" style="background:#666"><div class="n" style="color:#fff">Muted</div><div class="h" style="color:#fff;opacity:.75">#666666</div></div>
+    <div class="s" style="background:#d9d9d9"><div class="n">Hairline</div><div class="h">#d9d9d9</div></div>
+    <div class="s" style="background:#eeeeee"><div class="n">Paper alt</div><div class="h">#eeeeee</div></div>
+    <div class="s" style="background:#f4f2ee"><div class="n">Paper</div><div class="h">#f4f2ee</div></div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);line-height:1.5">Neutros cálidos. <b style="color:var(--ink)">Paper</b> (#f4f2ee) es el fondo preferido — beige apenas perceptible, no blanco puro. Nunca usar <code>#000</code>; el "negro" de la marca es <b style="color:var(--ink)">#1a1a1a</b>.</div>
+</body></html>

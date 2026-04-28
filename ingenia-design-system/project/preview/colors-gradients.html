@@ -1,0 +1,17 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:16px}
+  .grad{height:120px;border-radius:4px;display:flex;align-items:flex-end;padding:12px;color:#fff}
+  .grad .n{font-size:13px;font-weight:600}
+  .grad .h{font-family:ui-monospace,Menlo,monospace;font-size:10px;opacity:.9;margin-left:auto}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .row2 .grad{height:80px}
+</style></head><body>
+  <div class="grad" style="background:linear-gradient(135deg,#ff110a 0%,#ff5800 55%,#ff9400 100%)">
+    <div class="n">Primary · 135°</div><div class="h">#ff110a → #ff5800 → #ff9400</div>
+  </div>
+  <div class="row2">
+    <div class="grad" style="background:linear-gradient(135deg,#ff5800,#ff9400)"><div class="n">Warm</div><div class="h">#ff5800 → #ff9400</div></div>
+    <div class="grad" style="background:radial-gradient(circle at 30% 30%,#ff3a00 0%,#ff110a 40%,#ff5800 75%,#ff9400 100%)"><div class="n">Isotipo</div><div class="h">radial</div></div>
+  </div>
+  <div style="font-size:12px;color:var(--muted);line-height:1.5">Gradientes permitidos. <b style="color:var(--ink)">Nunca</b> como fondo plano de página completa — se aplican al isotipo, a tipografía destacada, o como poster de slide.</div>
+</body></html>

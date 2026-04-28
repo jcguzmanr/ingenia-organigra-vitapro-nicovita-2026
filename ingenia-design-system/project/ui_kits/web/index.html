@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=1280"/>
+<title>Ingenia Latam — UI Kit</title>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="Chrome.jsx"></script>
+<script type="text/babel" src="Hero.jsx"></script>
+<script type="text/babel" src="Sections.jsx"></script>
+
+<script type="text/babel">
+const { useState } = React;
+
+function HomeDesktop() {
+  return (
+    <div className="page" data-screen-label="Home · Desktop">
+      <TopBar/>
+      <HeroStatement/>
+      <Blob className="blob--hero-right" src="../../assets/bg-gradient-01.jpg" style={{width:780, height:620, right:-80, bottom:80, position:"absolute"}}/>
+      <div className="ticker-wrap"><Ticker/></div>
+    </div>
+  );
+}
+
+function MethodPage() {
+  return (
+    <div className="page" data-screen-label="Método · Desktop">
+      <SiteNav active="metodo"/>
+      <section style={{padding: "80px 56px 40px"}}>
+        <SectionHeader
+          eyebrow="Método · Cómo trabajamos"
+          title="No hacemos campañas."
+          anchor="Diseñamos claridad."
+        />
+        <p style={{maxWidth: 640, fontSize: 16, lineHeight: 1.6, color: "var(--ink-soft)"}}>
+          Después de 18 años ejecutando comunicación, entendimos algo clave: las marcas no necesitan hacer más.
+          Necesitan decidir mejor. Trabajamos en tres frentes que se ordenan entre sí.
+        </p>
+      </section>
+
+      <div className="pillars">
+        <PillarCard num="01" title="Foco" body="Definimos la pregunta real del negocio antes de proponer la respuesta. Reducimos agenda."/>
+        <PillarCard num="02" title="Gobernanza" body="Ordenamos la marca: portafolio, jerarquías, territorios. Menos colisiones, más palanca."/>
+        <PillarCard num="03" title="Plataforma" body="Construimos el sistema — narrativa, identidad, activos — que sostiene el crecimiento."/>
+      </div>
+
+      <section className="manifesto-section">
+        <ManifestoLine negative="No hacemos campañas." positive="Diseñamos claridad."/>
+        <ManifestoLine negative="No vendemos ideas." positive="Ordenamos decisiones."/>
+        <ManifestoLine negative="No reportamos reach." positive="Medimos avance de negocio."/>
+      </section>
+
+      <div className="ticker-wrap"><Ticker/></div>
+    </div>
+  );
+}
+
+function CasesPage() {
+  const cases = [
+    { n: "01", t: "Rediseño de portafolio regional", m: "Retail · LatAm" },
+    { n: "02", t: "Gobernanza de marca paraguas", m: "Consumo masivo" },
+    { n: "03", t: "Plataforma narrativa de crecimiento", m: "Servicios B2B" },
+    { n: "04", t: "Reposicionamiento en nuevo mercado", m: "Ecuador" },
+    { n: "05", t: "Arquitectura de submarcas", m: "Salud · Perú" },
+  ];
+  return (
+    <div className="page" data-screen-label="Casos · Desktop">
+      <SiteNav active="casos"/>
+      <section style={{padding: "80px 56px 40px"}}>
+        <SectionHeader
+          eyebrow="Casos · 2020–2026"
+          title="Trabajos con"
+          anchor="Resultado."
+        />
+      </section>
+      <div className="case-list">
+        {cases.map(c => (
+          <div key={c.n} className="case-row">
+            <span className="case-num">{c.n}</span>
+            <span className="case-title">{c.t}</span>
+            <span className="case-meta">{c.m}</span>
+            <span className="case-arrow">→</span>
+          </div>
+        ))}
+      </div>
+      <div className="ticker-wrap" style={{marginTop:80}}><Ticker/></div>
+    </div>
+  );
+}
+
+function ContactPage() {
+  return (
+    <div className="page" data-screen-label="Contacto · Desktop">
+      <SiteNav active="contacto"/>
+      <ContactBlock/>
+      <div className="ticker-wrap"><Ticker/></div>
+    </div>
+  );
+}
+
+function HomeMobile() {
+  return (
+    <div style={{background:"#e8e6e2", minHeight:"100vh", padding:"20px 0"}} data-screen-label="Home · Mobile">
+      <div className="mobile-frame">
+        <div className="page">
+          <TopBar/>
+          <div style={{padding:"32px 24px 0"}}>
+            <ConsultoraTagline stacked/>
+          </div>
+          <div style={{padding:"24px 24px 0"}}>
+            <img src="../../assets/logo-full-gradient.png" style={{height:44}} alt=""/>
+          </div>
+          <HeroStatement/>
+          <div style={{position:"absolute", width:420, height:380, right:-80, bottom:40, pointerEvents:"none", mixBlendMode:"multiply"}}>
+            <img src="../../assets/bg-gradient-01.jpg" style={{width:"100%", height:"100%", objectFit:"cover"}} alt=""/>
+          </div>
+          <div className="ticker-wrap"><Ticker/></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function App() {
+  const [tab, setTab] = useState(() => localStorage.getItem("ingenia-tab") || "home");
+  React.useEffect(() => { localStorage.setItem("ingenia-tab", tab); }, [tab]);
+
+  const tabs = [
+    { id: "home",     label: "Home" },
+    { id: "metodo",   label: "Método" },
+    { id: "casos",    label: "Casos" },
+    { id: "contacto", label: "Contacto" },
+    { id: "mobile",   label: "Mobile" },
+  ];
+
+  return (
+    <>
+      <div className="kit-tabs">
+        {tabs.map(t => (
+          <button key={t.id}
+            className={`kit-tab ${tab === t.id ? "is-active" : ""}`}
+            onClick={() => setTab(t.id)}>{t.label}</button>
+        ))}
+      </div>
+      {tab === "home" && <HomeDesktop/>}
+      {tab === "metodo" && <MethodPage/>}
+      {tab === "casos" && <CasesPage/>}
+      {tab === "contacto" && <ContactPage/>}
+      {tab === "mobile" && <HomeMobile/>}
+    </>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
+</script>
+</body>
+</html>

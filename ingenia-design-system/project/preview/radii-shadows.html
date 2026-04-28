@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:18px}
+  .row{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+  .cell{display:flex;flex-direction:column;gap:8px;align-items:center}
+  .box{background:#fff;border:1px solid var(--hairline);width:72px;height:72px}
+  .r0{border-radius:0}
+  .r1{border-radius:2px}
+  .r2{border-radius:4px}
+  .r3{border-radius:8px}
+  .rp{border-radius:999px}
+  .t{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted)}
+  .shadows{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .sh{background:#fff;height:80px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:var(--muted);font-family:ui-monospace,Menlo,monospace}
+  .sh1{box-shadow:0 1px 2px rgba(0,0,0,.06)}
+  .sh2{box-shadow:0 2px 12px rgba(0,0,0,.08)}
+  .sh3{box-shadow:0 12px 40px rgba(26,26,26,.12)}
+  .label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+</style></head><body>
+  <div class="label">Radii · Ingenia es low-radius</div>
+  <div class="row">
+    <div class="cell"><div class="box r0"></div><div class="t">0</div></div>
+    <div class="cell"><div class="box r1"></div><div class="t">2px</div></div>
+    <div class="cell"><div class="box r2"></div><div class="t">4px</div></div>
+    <div class="cell"><div class="box r3"></div><div class="t">8px</div></div>
+    <div class="cell"><div class="box rp" style="width:72px;height:28px"></div><div class="t">pill 999</div></div>
+  </div>
+  <div class="label">Shadows · úsense con cautela</div>
+  <div class="shadows">
+    <div class="sh sh1">shadow-1</div>
+    <div class="sh sh2">shadow-2</div>
+    <div class="sh sh3">shadow-3</div>
+  </div>
+</body></html>

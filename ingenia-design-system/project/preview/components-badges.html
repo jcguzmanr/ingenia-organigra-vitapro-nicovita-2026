@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:14px}
+  .row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+  .badge{display:inline-flex;align-items:center;gap:6px;padding:5px 10px;border-radius:999px;font-family:var(--font-sans);font-size:11px;font-weight:500;letter-spacing:.06em;text-transform:uppercase}
+  .badge.red{background:var(--ingenia-red);color:#fff}
+  .badge.orange{background:var(--ingenia-orange);color:#fff}
+  .badge.amber{background:var(--ingenia-orange-lt);color:var(--ink)}
+  .badge.dark{background:var(--ink);color:#fff}
+  .badge.outline{background:transparent;border:1px solid var(--ink);color:var(--ink)}
+  .badge.ghost{background:var(--paper-alt);color:var(--ink-soft)}
+  .dot{width:6px;height:6px;border-radius:999px;background:currentColor}
+  .chip{padding:4px 10px;border:1px solid var(--hairline);border-radius:4px;font-size:12px;background:#fff;color:var(--ink)}
+  .chip.active{border-color:var(--ink);background:var(--ink);color:#fff}
+  .label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+</style></head><body>
+  <div class="label">Badges · estado</div>
+  <div class="row">
+    <span class="badge red"><span class="dot"></span>Urgente</span>
+    <span class="badge orange">Activo</span>
+    <span class="badge amber">Highlight</span>
+    <span class="badge dark">Confidencial</span>
+    <span class="badge outline">Draft</span>
+    <span class="badge ghost">Archivo</span>
+  </div>
+  <div class="label">Chips · filtros</div>
+  <div class="row">
+    <span class="chip active">Todos</span>
+    <span class="chip">Marca</span>
+    <span class="chip">Crecimiento</span>
+    <span class="chip">Portafolio</span>
+    <span class="chip">Go-to-market</span>
+  </div>
+</body></html>

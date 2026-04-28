@@ -1,0 +1,29 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:14px}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .card{background:#fff;border:1px solid var(--hairline);border-radius:6px;padding:18px;display:flex;flex-direction:column;gap:8px;position:relative}
+  .card.accent::before{content:"";position:absolute;top:0;left:18px;right:18px;height:2px;background:var(--ingenia-red)}
+  .card .eb{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.14em;color:var(--muted)}
+  .card h3{font-family:var(--font-sans);font-size:18px;font-weight:600;letter-spacing:-.01em;margin:0;line-height:1.25}
+  .card p{font-size:13px;color:var(--ink-soft);line-height:1.5;margin:0}
+  .num{font-family:var(--font-display);font-size:48px;line-height:1;color:var(--ingenia-red)}
+  .card.shadow{border:none;box-shadow:0 2px 12px rgba(0,0,0,.08)}
+</style></head><body>
+  <div class="grid">
+    <div class="card accent">
+      <div class="eb">Caso · Retail</div>
+      <h3>Rediseño de portafolio para marca regional</h3>
+      <p>Consolidamos 14 SKUs en 6 líneas, con +23% de margen.</p>
+    </div>
+    <div class="card shadow">
+      <div class="num">18</div>
+      <div class="eb" style="margin-top:-4px">años en LatAm</div>
+      <p style="margin-top:4px">Ejecutando comunicación con foco.</p>
+    </div>
+  </div>
+  <div class="card" style="background:var(--ink);color:#fff;border:none">
+    <div class="eb" style="color:rgba(255,255,255,.6)">Documento confidencial</div>
+    <h3 style="color:#fff">Credenciales Ingenia Latam</h3>
+    <p style="color:rgba(255,255,255,.75)">Dossier anual · 2026</p>
+  </div>
+</body></html>

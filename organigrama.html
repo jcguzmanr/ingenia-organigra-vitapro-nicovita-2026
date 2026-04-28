@@ -1,0 +1,727 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Ingenia x Vitapro / Nicovita — Organigrama 2026</title>
+<link rel="stylesheet" href="ingenia-design-system/project/colors_and_type.css" />
+<style>
+  /* ---------- Layout base ---------- */
+  *,*::before,*::after{box-sizing:border-box}
+  body{
+    margin:0;
+    padding:0 0 var(--sp-9);
+    background:var(--paper);
+    color:var(--ink);
+    min-height:100vh;
+  }
+  .wrap{max-width:1280px;margin:0 auto;padding:0 var(--sp-6)}
+
+  /* ---------- Top header ---------- */
+  .topbar{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:var(--sp-5) 0 var(--sp-3);
+  }
+  .topbar .brand{display:flex;align-items:center;gap:var(--sp-3)}
+  .topbar .brand img{height:24px;width:auto;display:block}
+  .topbar .meta{
+    font-family:var(--font-sans);font-weight:500;
+    font-size:var(--fs-eyebrow);text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+  }
+
+  .hero{
+    border-top:1px solid var(--hairline);
+    padding:var(--sp-5) 0 var(--sp-4);
+  }
+  .hero .kicker{
+    margin-bottom:var(--sp-2);color:var(--muted);
+  }
+  .hero h1.editorial{
+    font-family:var(--font-editorial);
+    font-size:clamp(2rem, 4.2vw, 3.4rem);
+    font-weight:400;line-height:1;letter-spacing:-.02em;
+    text-transform:uppercase;margin:0 0 var(--sp-3);
+    white-space:nowrap;overflow:hidden;text-overflow:ellipsis;
+  }
+  .hero h1 .x{color:var(--ingenia-red);font-style:normal}
+  .hero .lede{
+    max-width:64ch;color:var(--ink-soft);
+    font-size:var(--fs-body);line-height:1.5;margin:0;
+  }
+
+  /* ---------- Sticky brand selector ---------- */
+  .marcas-stick{
+    position:sticky;top:0;z-index:50;
+    background:var(--paper);
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--ink);
+    margin-top:var(--sp-4);
+    box-shadow:0 4px 12px rgba(26,26,26,.04);
+  }
+  .marcas-inner{
+    max-width:1280px;margin:0 auto;
+    padding:var(--sp-3) var(--sp-6);
+    display:flex;align-items:center;gap:var(--sp-5);
+    flex-wrap:wrap;
+  }
+  .marcas-label{
+    display:flex;flex-direction:column;line-height:1.15;flex:0 0 auto;
+  }
+  .marcas-label .ttl{
+    font-family:var(--font-sans);font-weight:600;
+    font-size:.95rem;letter-spacing:-.01em;
+  }
+  .marcas-label .sub{
+    font-size:var(--fs-eyebrow);text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+  }
+  .chips{
+    display:flex;flex-wrap:wrap;gap:var(--sp-2);flex:1 1 auto;
+  }
+  .chip{
+    --chip-color:var(--ink);
+    background:var(--white);border:1px solid var(--hairline);
+    padding:6px 12px;border-radius:var(--r-pill);
+    font-family:var(--font-sans);font-size:.85rem;font-weight:500;
+    color:var(--ink);cursor:pointer;
+    display:inline-flex;align-items:center;gap:8px;
+    transition:all var(--dur-sm) var(--ease-standard);
+    line-height:1.2;
+  }
+  .chip .swatch{
+    width:9px;height:9px;border-radius:50%;
+    background:var(--chip-color);flex:0 0 auto;
+  }
+  .chip:hover{transform:translateY(-1px);box-shadow:var(--shadow-1)}
+  .chip[aria-pressed="true"]{
+    background:var(--chip-color);color:var(--white);
+    border-color:var(--chip-color);
+  }
+  .chip[aria-pressed="true"] .swatch{background:var(--white)}
+  .chip[data-brand="all"]{--chip-color:var(--ink)}
+  .chip[data-brand="ncam"]{--chip-color:#ff110a}
+  .chip[data-brand="npec"]{--chip-color:#ff5800}
+  .chip[data-brand="vint"]{--chip-color:#ff9400}
+  .chip[data-brand="vext"]{--chip-color:#1a1a1a}
+
+  .marcas-meta{
+    margin-left:auto;flex:0 0 auto;
+    font-size:var(--fs-eyebrow);text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+  }
+
+  /* ---------- Section heading (compact) ---------- */
+  section{margin-top:var(--sp-6)}
+  .section-h{
+    display:flex;align-items:baseline;gap:var(--sp-3);
+    margin-bottom:var(--sp-3);
+    border-bottom:1px solid var(--hairline);
+    padding-bottom:var(--sp-2);
+  }
+  .section-h h2{
+    font-family:var(--font-sans);font-weight:600;font-size:1.15rem;
+    margin:0;letter-spacing:-.01em;
+  }
+  .section-h .num{
+    font-family:var(--font-editorial);font-size:1.2rem;color:var(--ingenia-red);
+    line-height:1;
+  }
+  .section-h .meta{
+    margin-left:auto;font-size:var(--fs-eyebrow);
+    text-transform:uppercase;letter-spacing:var(--tracking-eyebrow);
+    color:var(--muted);
+  }
+
+  /* ---------- Direction tier (compact, org-chart feel) ---------- */
+  .dir-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:var(--sp-2);
+    position:relative;
+  }
+  .dir-card{
+    background:var(--white);border:1px solid var(--hairline);
+    padding:var(--sp-3) var(--sp-3);border-radius:var(--r-2);
+    position:relative;
+    display:flex;flex-direction:column;gap:2px;
+  }
+  .dir-card::before{
+    content:"";position:absolute;left:0;right:0;top:0;height:2px;
+    background:var(--grad-primary);
+  }
+  .dir-card .role{
+    font-size:var(--fs-eyebrow);text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+  }
+  .dir-card .name{
+    font-family:var(--font-sans);font-weight:600;font-size:.95rem;
+    line-height:1.2;
+  }
+  .dir-card .desc{
+    font-size:.78rem;color:var(--ink-soft);margin:2px 0 0;line-height:1.35;
+  }
+
+  /* Connector line — Dirección a Equipo */
+  .connector{
+    height:var(--sp-5);position:relative;margin:0 0 var(--sp-3);
+  }
+  .connector::before{
+    content:"";position:absolute;left:50%;top:0;bottom:0;width:1px;
+    background:var(--hairline);
+  }
+  .connector::after{
+    content:"";position:absolute;left:50%;bottom:0;
+    width:8px;height:8px;border-radius:50%;
+    background:var(--ingenia-red);
+    transform:translate(-50%, 50%);
+  }
+
+  /* ---------- Equipo (5 subgrupos en grid) ---------- */
+  .team-grid{
+    display:grid;grid-template-columns:repeat(5,1fr);gap:var(--sp-3);
+    align-items:start;
+  }
+  .col{
+    background:var(--white);border:1px solid var(--hairline);
+    border-radius:var(--r-3);padding:var(--sp-3);
+    display:flex;flex-direction:column;gap:var(--sp-2);
+    min-width:0;
+  }
+  .col-h{
+    display:flex;align-items:baseline;justify-content:space-between;
+    padding-bottom:var(--sp-2);border-bottom:1px solid var(--hairline);
+    margin-bottom:var(--sp-1);gap:var(--sp-2);
+  }
+  .col-h .title{
+    font-family:var(--font-sans);font-weight:600;font-size:.95rem;
+    letter-spacing:-.01em;
+  }
+  .col-h .count{
+    font-size:.7rem;text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+    white-space:nowrap;
+  }
+
+  .person{
+    border:1px solid var(--hairline);border-radius:var(--r-2);
+    padding:var(--sp-2) var(--sp-3) 10px;background:var(--paper);
+    display:flex;flex-direction:column;gap:6px;
+    transition:background var(--dur-sm) var(--ease-standard);
+  }
+  .person .head{
+    display:flex;justify-content:space-between;align-items:flex-start;
+    gap:var(--sp-2);
+  }
+  .person .role{
+    font-size:.65rem;text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+    line-height:1.2;
+  }
+  .person .name{
+    font-family:var(--font-sans);font-weight:600;font-size:.9rem;
+    margin:1px 0 0;line-height:1.2;
+  }
+  .person .stats{
+    display:flex;flex-direction:column;align-items:flex-end;gap:0;
+    flex:0 0 auto;
+  }
+  .person .stat-pct{
+    font-family:var(--font-editorial);font-size:1.15rem;line-height:1;
+    color:var(--ink);transition:color var(--dur-sm) var(--ease-standard);
+  }
+  .person .stat-h{
+    font-size:.7rem;color:var(--ink-soft);
+    font-variant-numeric:tabular-nums;line-height:1.1;margin-top:2px;
+  }
+  .person .stat-h::after{content:" h"}
+
+  /* Stacked bar (más bajo) */
+  .bar{
+    height:10px;background:var(--paper-alt);border-radius:2px;
+    display:flex;overflow:hidden;border:1px solid var(--hairline);
+  }
+  .bar .seg{
+    height:100%;transition:opacity var(--dur-md) var(--ease-standard),
+      filter var(--dur-md) var(--ease-standard);
+  }
+  .bar .seg.ncam{background:#ff110a}
+  .bar .seg.npec{background:#ff5800}
+  .bar .seg.vint{background:#ff9400}
+  .bar .seg.vext{background:#1a1a1a}
+
+  body[data-brand="ncam"] .bar .seg:not(.ncam){opacity:.18;filter:saturate(.4)}
+  body[data-brand="npec"] .bar .seg:not(.npec){opacity:.18;filter:saturate(.4)}
+  body[data-brand="vint"] .bar .seg:not(.vint){opacity:.18;filter:saturate(.4)}
+  body[data-brand="vext"] .bar .seg:not(.vext){opacity:.18;filter:saturate(.4)}
+
+  body[data-brand="ncam"] .person .stat-pct{color:#ff110a}
+  body[data-brand="npec"] .person .stat-pct{color:#ff5800}
+  body[data-brand="vint"] .person .stat-pct{color:#ff9400}
+  body[data-brand="vext"] .person .stat-pct{color:#1a1a1a}
+
+  /* ---------- Tabla horas ---------- */
+  .table-wrap{
+    background:var(--white);border:1px solid var(--hairline);
+    border-radius:var(--r-3);overflow:hidden;
+  }
+  table.hours{
+    width:100%;border-collapse:collapse;
+    font-family:var(--font-sans);font-size:.88rem;
+  }
+  table.hours thead th{
+    background:var(--paper-alt);
+    font-family:var(--font-sans);font-weight:600;
+    font-size:.7rem;text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);
+    text-align:right;padding:8px var(--sp-3);
+    border-bottom:1px solid var(--hairline);
+    color:var(--ink-soft);white-space:nowrap;
+    transition:background var(--dur-sm) var(--ease-standard),
+      color var(--dur-sm) var(--ease-standard);
+  }
+  table.hours thead th:first-child{text-align:left}
+  table.hours tbody td{
+    padding:8px var(--sp-3);
+    border-bottom:1px solid var(--hairline);
+    text-align:right;font-variant-numeric:tabular-nums;
+    transition:background var(--dur-sm) var(--ease-standard),
+      color var(--dur-sm) var(--ease-standard);
+  }
+  table.hours tbody td:first-child{text-align:left;font-weight:500}
+  table.hours tbody tr:last-child td{border-bottom:none}
+  table.hours tfoot td{
+    padding:8px var(--sp-3);
+    background:var(--paper-alt);
+    font-weight:700;text-align:right;
+    font-variant-numeric:tabular-nums;
+    border-top:2px solid var(--ink);
+  }
+  table.hours tfoot td:first-child{text-align:left}
+
+  body[data-brand="ncam"] table.hours .c-ncam{background:rgba(255,17,10,.08);color:#ff110a;font-weight:600}
+  body[data-brand="npec"] table.hours .c-npec{background:rgba(255,88,0,.10);color:#ff5800;font-weight:600}
+  body[data-brand="vint"] table.hours .c-vint{background:rgba(255,148,0,.14);color:#9c4f00;font-weight:600}
+  body[data-brand="vext"] table.hours .c-vext{background:rgba(26,26,26,.07);color:var(--ink);font-weight:700}
+
+  body[data-brand="ncam"] table.hours thead th.c-ncam{background:#ff110a;color:var(--white)}
+  body[data-brand="npec"] table.hours thead th.c-npec{background:#ff5800;color:var(--white)}
+  body[data-brand="vint"] table.hours thead th.c-vint{background:#ff9400;color:var(--white)}
+  body[data-brand="vext"] table.hours thead th.c-vext{background:#1a1a1a;color:var(--white)}
+
+  body[data-brand="ncam"] table.hours tfoot td.c-ncam{background:rgba(255,17,10,.16);color:#ff110a}
+  body[data-brand="npec"] table.hours tfoot td.c-npec{background:rgba(255,88,0,.18);color:#ff5800}
+  body[data-brand="vint"] table.hours tfoot td.c-vint{background:rgba(255,148,0,.22);color:#9c4f00}
+  body[data-brand="vext"] table.hours tfoot td.c-vext{background:rgba(26,26,26,.10);color:var(--ink)}
+
+  .group-row td{
+    background:var(--paper-alt);
+    font-family:var(--font-sans);font-weight:600;
+    font-size:.7rem;text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+  }
+
+  /* ---------- Footer cinta ---------- */
+  .ribbon{
+    margin-top:var(--sp-7);border-top:1px solid var(--hairline);
+    padding-top:var(--sp-3);
+    overflow:hidden;white-space:nowrap;
+    font-family:var(--font-sans);font-weight:500;
+    font-size:var(--fs-eyebrow);text-transform:uppercase;
+    letter-spacing:var(--tracking-eyebrow);color:var(--muted);
+  }
+  .ribbon span{padding-right:var(--sp-5)}
+  .ribbon .ast{color:var(--ingenia-red)}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 1180px){
+    .team-grid{grid-template-columns:repeat(3,1fr)}
+  }
+  @media (max-width: 900px){
+    .team-grid{grid-template-columns:repeat(2,1fr)}
+    .dir-grid{grid-template-columns:repeat(2,1fr)}
+    .marcas-meta{margin-left:0}
+  }
+  @media (max-width: 600px){
+    .team-grid{grid-template-columns:1fr}
+    .dir-grid{grid-template-columns:1fr}
+    .hero h1.editorial{white-space:normal}
+    .wrap{padding:0 var(--sp-4)}
+    .marcas-inner{padding:var(--sp-3) var(--sp-4)}
+  }
+</style>
+</head>
+<body data-brand="all">
+
+<div class="wrap">
+  <!-- ============= TOPBAR ============= -->
+  <div class="topbar">
+    <div class="brand">
+      <img src="ingenia-design-system/project/assets/logo-full-gradient.png" alt="Ingenia Latam" />
+    </div>
+    <div class="meta">Ingenia / 2026 / Distribución de FEE</div>
+  </div>
+
+  <!-- ============= HERO ============= -->
+  <header class="hero">
+    <div class="kicker eyebrow">Organigrama operativo · Cuentas Acuícolas</div>
+    <h1 class="editorial">Ingenia <span class="x">×</span> Vitapro / Nicovita.</h1>
+    <p class="lede">
+      Distribución de equipo y horas mensuales por marca.
+      Selecciona una marca para ver la dedicación de cada rol sobre una base de
+      <strong>160 horas</strong> mensuales por persona.
+    </p>
+  </header>
+</div>
+
+<!-- ============= STICKY MARCAS ============= -->
+<div class="marcas-stick">
+  <div class="marcas-inner">
+    <div class="marcas-label">
+      <span class="ttl">Marcas</span>
+      <span class="sub">Selecciona una marca para ver el equipo</span>
+    </div>
+    <div class="chips" role="group" aria-label="Selector de marca">
+      <button type="button" class="chip" data-brand="all" aria-pressed="true">
+        <span class="swatch"></span> Todas
+      </button>
+      <button type="button" class="chip" data-brand="ncam" aria-pressed="false">
+        <span class="swatch"></span> Nicovita Camarones
+      </button>
+      <button type="button" class="chip" data-brand="npec" aria-pressed="false">
+        <span class="swatch"></span> Nicovita Peces
+      </button>
+      <button type="button" class="chip" data-brand="vint" aria-pressed="false">
+        <span class="swatch"></span> Vitapro Interno
+      </button>
+      <button type="button" class="chip" data-brand="vext" aria-pressed="false">
+        <span class="swatch"></span> Vitapro Externo
+      </button>
+    </div>
+    <div class="marcas-meta" id="tableMeta">Vista completa · 1 600 h</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <!-- ============= DIRECCIÓN ============= -->
+  <section>
+    <div class="section-h">
+      <span class="num">*</span>
+      <h2>Dirección</h2>
+      <span class="meta">Soporte transversal</span>
+    </div>
+
+    <div class="dir-grid">
+      <div class="dir-card">
+        <span class="role">Dirección</span>
+        <span class="name">Director de Operaciones Consultivas</span>
+        <p class="desc">Salud comercial y operativa. Punto de escalación con cliente.</p>
+      </div>
+      <div class="dir-card">
+        <span class="role">Dirección</span>
+        <span class="name">Director de Estrategia</span>
+        <p class="desc">Define enfoque estratégico y lineamientos del plan anual.</p>
+      </div>
+      <div class="dir-card">
+        <span class="role">Dirección</span>
+        <span class="name">Director de Arte</span>
+        <p class="desc">Gobierna identidad visual y consistencia gráfica de las marcas.</p>
+      </div>
+      <div class="dir-card">
+        <span class="role">Dirección</span>
+        <span class="name">Director Creativo</span>
+        <p class="desc">Lidera idea y tono creativo. Asegura diferenciación.</p>
+      </div>
+    </div>
+
+    <div class="connector" aria-hidden="true"></div>
+  </section>
+
+  <!-- ============= EQUIPO ============= -->
+  <section>
+    <div class="section-h">
+      <span class="num">*</span>
+      <h2>Equipo</h2>
+      <span class="meta">10 personas · 160 h / mes</span>
+    </div>
+
+    <div class="team-grid">
+
+      <!-- GESTIÓN -->
+      <div class="col">
+        <div class="col-h"><span class="title">Gestión</span><span class="count">2</span></div>
+        <div class="person" data-pcts="0.75,0.00,0.00,0.25">
+          <div class="head">
+            <div><div class="role">Ej. Cuentas Sr</div><div class="name">Meche</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:75%"></span>
+            <span class="seg npec" style="width:0%"></span>
+            <span class="seg vint" style="width:0%"></span>
+            <span class="seg vext" style="width:25%"></span>
+          </div>
+        </div>
+        <div class="person" data-pcts="0.00,0.25,0.75,0.00">
+          <div class="head">
+            <div><div class="role">Ej. Cuentas</div><div class="name">Isa</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:0%"></span>
+            <span class="seg npec" style="width:25%"></span>
+            <span class="seg vint" style="width:75%"></span>
+            <span class="seg vext" style="width:0%"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL MEDIA -->
+      <div class="col">
+        <div class="col-h"><span class="title">Social Media</span><span class="count">2</span></div>
+        <div class="person" data-pcts="0.75,0.05,0.10,0.10">
+          <div class="head">
+            <div><div class="role">Community Manager</div><div class="name">Cami</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:75%"></span>
+            <span class="seg npec" style="width:5%"></span>
+            <span class="seg vint" style="width:10%"></span>
+            <span class="seg vext" style="width:10%"></span>
+          </div>
+        </div>
+        <div class="person" data-pcts="0.75,0.05,0.10,0.10">
+          <div class="head">
+            <div><div class="role">Social Media Mgr</div><div class="name">&nbsp;</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:75%"></span>
+            <span class="seg npec" style="width:5%"></span>
+            <span class="seg vint" style="width:10%"></span>
+            <span class="seg vext" style="width:10%"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- REDACTORES -->
+      <div class="col">
+        <div class="col-h"><span class="title">Redactores</span><span class="count">2</span></div>
+        <div class="person" data-pcts="0.59,0.09,0.16,0.16">
+          <div class="head">
+            <div><div class="role">Redactor Sr</div><div class="name">Diego</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:59%"></span>
+            <span class="seg npec" style="width:9%"></span>
+            <span class="seg vint" style="width:16%"></span>
+            <span class="seg vext" style="width:16%"></span>
+          </div>
+        </div>
+        <div class="person" data-pcts="0.50,0.14,0.14,0.22">
+          <div class="head">
+            <div><div class="role">Redactor Mid</div><div class="name">Tore</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:50%"></span>
+            <span class="seg npec" style="width:14%"></span>
+            <span class="seg vint" style="width:14%"></span>
+            <span class="seg vext" style="width:22%"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DISEÑADORES -->
+      <div class="col">
+        <div class="col-h"><span class="title">Diseñadores</span><span class="count">3</span></div>
+        <div class="person" data-pcts="0.38,0.22,0.15,0.25">
+          <div class="head">
+            <div><div class="role">Diseñador Sr</div><div class="name">Ritt</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:38%"></span>
+            <span class="seg npec" style="width:22%"></span>
+            <span class="seg vint" style="width:15%"></span>
+            <span class="seg vext" style="width:25%"></span>
+          </div>
+        </div>
+        <div class="person" data-pcts="0.52,0.16,0.13,0.19">
+          <div class="head">
+            <div><div class="role">Diseñador Mid</div><div class="name">Shay</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:52%"></span>
+            <span class="seg npec" style="width:16%"></span>
+            <span class="seg vint" style="width:13%"></span>
+            <span class="seg vext" style="width:19%"></span>
+          </div>
+        </div>
+        <div class="person" data-pcts="0.38,0.20,0.04,0.38">
+          <div class="head">
+            <div><div class="role">Diseñador Jr</div><div class="name">Ari</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:38%"></span>
+            <span class="seg npec" style="width:20%"></span>
+            <span class="seg vint" style="width:4%"></span>
+            <span class="seg vext" style="width:38%"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ANIMADOR -->
+      <div class="col">
+        <div class="col-h"><span class="title">Animador</span><span class="count">1</span></div>
+        <div class="person" data-pcts="0.54,0.16,0.11,0.19">
+          <div class="head">
+            <div><div class="role">Animador</div><div class="name">Pío</div></div>
+            <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
+          </div>
+          <div class="bar">
+            <span class="seg ncam" style="width:54%"></span>
+            <span class="seg npec" style="width:16%"></span>
+            <span class="seg vint" style="width:11%"></span>
+            <span class="seg vext" style="width:19%"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============= TABLA HORAS ============= -->
+  <section>
+    <div class="section-h">
+      <span class="num">*</span>
+      <h2>Horas por marca</h2>
+      <span class="meta">Total mensual</span>
+    </div>
+
+    <div class="table-wrap">
+      <table class="hours" id="hoursTable">
+        <thead>
+          <tr>
+            <th>Rol</th>
+            <th class="c-ncam">Nicovita Cam.</th>
+            <th class="c-npec">Nicovita Peces</th>
+            <th class="c-vint">Vitapro Int.</th>
+            <th class="c-vext">Vitapro Ext.</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="6">Gestión</td></tr>
+          <tr data-pcts="0.75,0.00,0.00,0.25"><td>Ej. Cuentas Sr · Meche</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.00,0.25,0.75,0.00"><td>Ej. Cuentas · Isa</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+
+          <tr class="group-row"><td colspan="6">Social Media</td></tr>
+          <tr data-pcts="0.75,0.05,0.10,0.10"><td>Community Manager · Cami</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.75,0.05,0.10,0.10"><td>Social Media Manager</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+
+          <tr class="group-row"><td colspan="6">Redactores</td></tr>
+          <tr data-pcts="0.59,0.09,0.16,0.16"><td>Redactor Sr · Diego</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.50,0.14,0.14,0.22"><td>Redactor Mid · Tore</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+
+          <tr class="group-row"><td colspan="6">Diseñadores</td></tr>
+          <tr data-pcts="0.38,0.22,0.15,0.25"><td>Diseñador Sr · Ritt</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.52,0.16,0.13,0.19"><td>Diseñador Mid · Shay</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.38,0.20,0.04,0.38"><td>Diseñador Jr · Ari</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+
+          <tr class="group-row"><td colspan="6">Animador</td></tr>
+          <tr data-pcts="0.54,0.16,0.11,0.19"><td>Animador · Pío</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+        </tbody>
+        <tfoot>
+          <tr id="totalsRow">
+            <td>Total horas</td>
+            <td class="c-ncam">—</td>
+            <td class="c-npec">—</td>
+            <td class="c-vint">—</td>
+            <td class="c-vext">—</td>
+            <td>1 600</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+  </section>
+
+  <!-- ============= RIBBON ============= -->
+  <div class="ribbon">
+    <span>Ingenia / 2026</span><span class="ast">*</span>
+    <span>Vitapro · Nicovita</span><span class="ast">*</span>
+    <span>Documento operativo</span><span class="ast">*</span>
+    <span>Distribución FEE</span><span class="ast">*</span>
+    <span>Confidencial</span><span class="ast">*</span>
+  </div>
+
+</div>
+
+<script>
+  const fmt = n => {
+    if (Math.abs(n - Math.round(n)) < 0.05) return Math.round(n).toString();
+    return n.toFixed(1).replace('.', ',');
+  };
+  const BRANDS = ['ncam','npec','vint','vext'];
+  const BRAND_NAMES = {
+    all: 'Vista completa',
+    ncam: 'Nicovita Camarones',
+    npec: 'Nicovita Peces',
+    vint: 'Vitapro Interno',
+    vext: 'Vitapro Externo'
+  };
+
+  // Pre-fill table
+  document.querySelectorAll('#hoursTable tbody tr[data-pcts]').forEach(tr => {
+    const p = tr.dataset.pcts.split(',').map(Number);
+    const cells = tr.querySelectorAll('td');
+    BRANDS.forEach((b, i) => cells[i+1].textContent = fmt(p[i]*160));
+  });
+
+  // Column totals
+  const totals = [0,0,0,0];
+  document.querySelectorAll('#hoursTable tbody tr[data-pcts]').forEach(tr => {
+    const p = tr.dataset.pcts.split(',').map(Number);
+    p.forEach((v,i) => totals[i] += v*160);
+  });
+  const totRow = document.querySelectorAll('#totalsRow td');
+  BRANDS.forEach((b,i) => totRow[i+1].textContent = fmt(totals[i]));
+
+  // Selector
+  const chips = document.querySelectorAll('.chip');
+  const tableMeta = document.getElementById('tableMeta');
+
+  function setBrand(brand) {
+    document.body.dataset.brand = brand;
+    chips.forEach(c => c.setAttribute('aria-pressed', c.dataset.brand === brand ? 'true' : 'false'));
+
+    document.querySelectorAll('.person').forEach(p => {
+      const pcts = p.dataset.pcts.split(',').map(Number);
+      const pctEl = p.querySelector('.stat-pct');
+      const hEl = p.querySelector('.stat-h');
+      if (brand === 'all') {
+        pctEl.textContent = '100%';
+        hEl.textContent = '160';
+      } else {
+        const idx = BRANDS.indexOf(brand);
+        pctEl.textContent = fmt(pcts[idx]*100) + '%';
+        hEl.textContent = fmt(pcts[idx]*160);
+      }
+    });
+
+    if (brand === 'all') {
+      tableMeta.textContent = 'Vista completa · 1 600 h';
+    } else {
+      const idx = BRANDS.indexOf(brand);
+      tableMeta.textContent = BRAND_NAMES[brand] + ' · ' + fmt(totals[idx]) + ' h';
+    }
+  }
+
+  chips.forEach(c => c.addEventListener('click', () => setBrand(c.dataset.brand)));
+  setBrand('all');
+</script>
+</body>
+</html>

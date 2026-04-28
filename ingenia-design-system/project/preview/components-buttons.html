@@ -1,0 +1,33 @@
+<!doctype html><html lang="es"><head><meta charset="utf-8"><link rel="stylesheet" href="_card.css"><style>
+  body{padding:28px;gap:16px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+  .btn{font-family:var(--font-sans);font-size:14px;font-weight:500;padding:11px 20px;border-radius:4px;border:1px solid transparent;cursor:pointer;transition:all .12s cubic-bezier(.2,.7,.2,1);display:inline-flex;align-items:center;gap:8px;letter-spacing:.01em}
+  .btn.primary{background:var(--ingenia-red);color:#fff}
+  .btn.primary:hover{background:#e8100a}
+  .btn.ghost{background:transparent;color:var(--ingenia-red);border-color:var(--ingenia-red)}
+  .btn.ghost:hover{background:rgba(255,17,10,.08)}
+  .btn.dark{background:var(--ink);color:#fff}
+  .btn.dark:hover{background:#000}
+  .btn.text{background:transparent;color:var(--ink);padding-left:0;padding-right:0;text-decoration:underline;text-decoration-color:var(--ingenia-red);text-underline-offset:4px}
+  .btn.sm{padding:7px 14px;font-size:13px}
+  .btn.lg{padding:14px 26px;font-size:15px}
+  .btn.disabled{opacity:.4;pointer-events:none}
+  .label{font-size:10px;font-weight:500;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin-top:4px}
+  .arrow{display:inline-block;transition:transform .2s}
+  .btn:hover .arrow{transform:translateX(3px)}
+</style></head><body>
+  <div class="label">Primary · Ghost · Dark</div>
+  <div class="row">
+    <button class="btn primary">Hablemos <span class="arrow">→</span></button>
+    <button class="btn ghost">Ver casos</button>
+    <button class="btn dark">Descargar brief</button>
+    <button class="btn text">Leer más →</button>
+  </div>
+  <div class="label">Sizes</div>
+  <div class="row">
+    <button class="btn primary sm">Sm</button>
+    <button class="btn primary">Default</button>
+    <button class="btn primary lg">Large</button>
+    <button class="btn primary disabled">Disabled</button>
+  </div>
+</body></html>
