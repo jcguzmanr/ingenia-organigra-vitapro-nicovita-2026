@@ -213,10 +213,6 @@
     letter-spacing:var(--tracking-eyebrow);color:var(--muted);
     line-height:1.2;
   }
-  .person .name{
-    font-family:var(--font-sans);font-weight:600;font-size:.9rem;
-    margin:1px 0 0;line-height:1.2;
-  }
   .person .stats{
     display:flex;flex-direction:column;align-items:flex-end;gap:0;
     flex:0 0 auto;
@@ -444,7 +440,7 @@
         <div class="col-h"><span class="title">Gestión</span><span class="count">2</span></div>
         <div class="person" data-pcts="0.75,0.00,0.00,0.25">
           <div class="head">
-            <div><div class="role">Ej. Cuentas Sr</div><div class="name">Meche</div></div>
+            <div><div class="role">Ej. Cuentas Sr</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -456,7 +452,7 @@
         </div>
         <div class="person" data-pcts="0.00,0.25,0.75,0.00">
           <div class="head">
-            <div><div class="role">Ej. Cuentas</div><div class="name">Isa</div></div>
+            <div><div class="role">Ej. Cuentas</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -473,7 +469,7 @@
         <div class="col-h"><span class="title">Social Media</span><span class="count">2</span></div>
         <div class="person" data-pcts="0.75,0.05,0.10,0.10">
           <div class="head">
-            <div><div class="role">Community Manager</div><div class="name">Cami</div></div>
+            <div><div class="role">Community Manager</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -485,7 +481,7 @@
         </div>
         <div class="person" data-pcts="0.75,0.05,0.10,0.10">
           <div class="head">
-            <div><div class="role">Social Media Mgr</div><div class="name">&nbsp;</div></div>
+            <div><div class="role">Social Media Mgr</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -502,7 +498,7 @@
         <div class="col-h"><span class="title">Redactores</span><span class="count">2</span></div>
         <div class="person" data-pcts="0.59,0.09,0.16,0.16">
           <div class="head">
-            <div><div class="role">Redactor Sr</div><div class="name">Diego</div></div>
+            <div><div class="role">Redactor Sr</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -514,7 +510,7 @@
         </div>
         <div class="person" data-pcts="0.50,0.14,0.14,0.22">
           <div class="head">
-            <div><div class="role">Redactor Mid</div><div class="name">Tore</div></div>
+            <div><div class="role">Redactor Mid</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -531,7 +527,7 @@
         <div class="col-h"><span class="title">Diseñadores</span><span class="count">3</span></div>
         <div class="person" data-pcts="0.38,0.22,0.15,0.25">
           <div class="head">
-            <div><div class="role">Diseñador Sr</div><div class="name">Ritt</div></div>
+            <div><div class="role">Diseñador Sr</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -543,7 +539,7 @@
         </div>
         <div class="person" data-pcts="0.52,0.16,0.13,0.19">
           <div class="head">
-            <div><div class="role">Diseñador Mid</div><div class="name">Shay</div></div>
+            <div><div class="role">Diseñador Mid</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -555,7 +551,7 @@
         </div>
         <div class="person" data-pcts="0.38,0.20,0.04,0.38">
           <div class="head">
-            <div><div class="role">Diseñador Jr</div><div class="name">Ari</div></div>
+            <div><div class="role">Diseñador Jr</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -572,7 +568,7 @@
         <div class="col-h"><span class="title">Animador</span><span class="count">1</span></div>
         <div class="person" data-pcts="0.54,0.16,0.11,0.19">
           <div class="head">
-            <div><div class="role">Animador</div><div class="name">Pío</div></div>
+            <div><div class="role">Animador</div></div>
             <div class="stats"><span class="stat-pct">100%</span><span class="stat-h">160</span></div>
           </div>
           <div class="bar">
@@ -609,24 +605,24 @@
         </thead>
         <tbody>
           <tr class="group-row"><td colspan="6">Gestión</td></tr>
-          <tr data-pcts="0.75,0.00,0.00,0.25"><td>Ej. Cuentas Sr · Meche</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
-          <tr data-pcts="0.00,0.25,0.75,0.00"><td>Ej. Cuentas · Isa</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.75,0.00,0.00,0.25"><td>Ej. Cuentas Sr</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.00,0.25,0.75,0.00"><td>Ej. Cuentas</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
 
           <tr class="group-row"><td colspan="6">Social Media</td></tr>
-          <tr data-pcts="0.75,0.05,0.10,0.10"><td>Community Manager · Cami</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.75,0.05,0.10,0.10"><td>Community Manager</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
           <tr data-pcts="0.75,0.05,0.10,0.10"><td>Social Media Manager</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
 
           <tr class="group-row"><td colspan="6">Redactores</td></tr>
-          <tr data-pcts="0.59,0.09,0.16,0.16"><td>Redactor Sr · Diego</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
-          <tr data-pcts="0.50,0.14,0.14,0.22"><td>Redactor Mid · Tore</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.59,0.09,0.16,0.16"><td>Redactor Sr</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.50,0.14,0.14,0.22"><td>Redactor Mid</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
 
           <tr class="group-row"><td colspan="6">Diseñadores</td></tr>
-          <tr data-pcts="0.38,0.22,0.15,0.25"><td>Diseñador Sr · Ritt</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
-          <tr data-pcts="0.52,0.16,0.13,0.19"><td>Diseñador Mid · Shay</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
-          <tr data-pcts="0.38,0.20,0.04,0.38"><td>Diseñador Jr · Ari</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.38,0.22,0.15,0.25"><td>Diseñador Sr</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.52,0.16,0.13,0.19"><td>Diseñador Mid</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.38,0.20,0.04,0.38"><td>Diseñador Jr</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
 
           <tr class="group-row"><td colspan="6">Animador</td></tr>
-          <tr data-pcts="0.54,0.16,0.11,0.19"><td>Animador · Pío</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
+          <tr data-pcts="0.54,0.16,0.11,0.19"><td>Animador</td><td class="c-ncam"></td><td class="c-npec"></td><td class="c-vint"></td><td class="c-vext"></td><td>160</td></tr>
         </tbody>
         <tfoot>
           <tr id="totalsRow">
